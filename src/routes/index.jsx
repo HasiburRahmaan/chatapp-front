@@ -37,6 +37,6 @@ const routes = [
   }
 
   return e;
-});
+})
 
 export default routes;
