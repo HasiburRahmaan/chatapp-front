@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { GetData } from "../http";
-import { CHAT_LIST } from "../config/api";
+import { CHAT_LIST, HOST } from "../config/api";
 import ChatItem from "../components/chat/ChatItem";
 import ChatBox from "../components/chat/ChatBox";
+import { socket } from "../config/socket";
+
+
 
 const Chat = () => {
   let [chatList, setChatList] = useState([]);
   let [selectedChat, setSelectedChat] = useState(null);
+
+  useEffect(() => {
+    socket.connect();
+    socket.on("connect", () => {
+    });
+  }, []);
 
   useEffect(() => {
     getChatList();
@@ -17,7 +26,6 @@ const Chat = () => {
 
     if (res) {
       setChatList(res?.data?.item);
-      console.log(res.data);
     }
   };
 

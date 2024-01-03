@@ -1,4 +1,4 @@
-let HOST = "http://localhost:5000"
+export let HOST = "http://localhost:5000"
 
 
 export const REGISTRATION = `${HOST}/api/auth/registration`
